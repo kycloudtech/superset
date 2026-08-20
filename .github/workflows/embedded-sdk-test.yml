@@ -10,6 +10,7 @@ jobs:
   embedded-sdk-test:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-20.04
+    timeout-minutes: 30   # 默认 360 分钟太长，挂死会烧穿 Actions 额度
     defaults:
       run:
         working-directory: superset-embedded-sdk

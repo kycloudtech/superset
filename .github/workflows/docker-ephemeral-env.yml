@@ -11,6 +11,7 @@ jobs:
     name: Push ephemeral env Docker image to ECR
     if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    timeout-minutes: 30   # 默认 360 分钟太长，挂死会烧穿 Actions 额度
 
     steps:
     - name: 'Download artifact'

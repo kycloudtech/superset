@@ -8,6 +8,7 @@ jobs:
   check_db_migration_conflict:
     name: Check DB migration conflict
     runs-on: ubuntu-20.04
+    timeout-minutes: 30   # 默认 360 分钟太长，挂死会烧穿 Actions 额度
     steps:
       - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
         uses: actions/checkout@v2
